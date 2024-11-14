@@ -1,50 +1,30 @@
 <%- include ('partials/header.ejs') %>
 <%- include ('partials/navbar.ejs') %>
 
-        <div class="container">
-            <div class="d-flex justify-content-between border">
-            <h2 class="border align-self-end m-0">Histórico</h2>
-            <a href="/historico" id="voltar" class="rounded text-light border">Voltar</a>
+        <div class="container border">
+            <div class="d-flex align-items-center justify-content-between border mt-2" id="hist">
+            <h2 class="border align-self-end m-0 p-0">Histórico</h2>
+            <a href="/historico" id="btn-voltar" class="py-2 align-self-end"><img src="/imgs/back.svg" alt="" id="img-voltar">Voltar</a>
             </div>
             
-            <img src="/imgs/linha.png" alt="" id="voltar-linha" class="border">
+            <img src="/imgs/linha.png" alt="" id="voltar-linha" class="p-0 mt-0">
         </div>
 
 
-        <div class="container">
+        <div class="container border">
             <div class="card">
-                <div class="card-header">
-                    <h1>Histórico de Talhões</h1>
+                <div class="d-flex align-items-center justify-content-between border mt-2" id="hist">
+                    <h2 class=" align-self-center m-0 px-2">Talhão 1</h2>
+                    <div class="input-group rounded border">
+                        <input type="search" class="form-control rounded" placeholder="Pesquisar" aria-label="Search" aria-describedby="search-addon" id="pesq">
+                        <span class="input-group-text border-0" id="search-addon">
+                        <i class="fas fa-search"></i>
+                        </span>
+                    </div>
+                    <a href="/fazerupload"><img src="/imgs/adicionar.svg" alt="" ></a>
+                    <a href="/fazeredit"><img src="/imgs/btn-editar.svg" alt="" ></a>
                 </div>
-                <div class="card-body">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Planta:</th>
-                                <th>Status:</th>
-                                <th colspan="2">Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% histal.forEach(histal=> { %>
-                                <tr>
-                                    <td><img src="imgs/product.png" width="30px"></td>
-                                    <td>
-                                        <%= histal.planta %>
-                                    </td>
-                                    <td>
-                                        <%= histal.status %>
-                                    </td>
-                                    <td><a style="color: orange" href="/histal/edit/<%= histal.id %>">Editar</a></td>
-                                    <td><a href="/histal/delete/<%= histal.id %>"
-                                            onclick="return confirm('Deseja realmente apagar esse cadastro?')">Apagar</a>
-                                    </td>
-                                </tr>
-                                <% }) %>
-                        </tbody>
-                    </table>
-                </div>
+                <img src="/imgs/linha.png" alt="" id="voltar-linha" class="p-0 mt-0">
             </div>
         </div>
         <%- include ('partials/footer.ejs') %>

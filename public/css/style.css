@@ -220,10 +220,37 @@ margin-right: 20%;
 
 a#voltar{
     background-color: var(--verde-bege);
-    height: 10px;
+    height: 100%;
 }
 
 #voltar-linha{
     width: 100%;
-    border: 1px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#hist{
+    height: 3.5em;
+
+}
+
+#btn-voltar{
+    background-color: var(--verde-escuro);
+    border: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-weight: 500;
+    transition-duration: 0.3ms;
+    text-align: center;
+    gap: 35px;
+}
+
+#img-voltar{
+    width: 25.5px;
+    height: auto;
+    margin-right: 18px;
+}
+
+#pesq{
+    width: 20px;
 }
