@@ -1,10 +1,8 @@
-// ORM - Sequelize
 import sequelize from "sequelize";
-//Configuração do Sequelize
 import connection from "../config/sequelize-config.js";
-import Talhoes from "./Talhoes.js"
-//.define cria a tabela no banco
-const Histal = connection.define('histal', {
+import Talhoes from "./Talhoes.js";
+
+const Pes = connection.define('pes', {
     id_pe: {
         type: sequelize.INTEGER,
         autoIncrement: true,
@@ -25,15 +23,16 @@ const Histal = connection.define('histal', {
     },
 
     situacao: {
-        type: sequelize.ENUM('Tratado', 'Não tratado', 'Sem informações'),
+        type: sequelize.ENUM('tratado', 'nao tratado', 'sem informacoes'),
         allowNull: false,
     },
 
     data_criacao: {
-        type: sequelize.DATEONLY,
+        type: sequelize.DATE,
         allowNull: false,
     }
 });
-//Não força a criação da tabela caso já exista
-Histal.sync({ force: false })
-export default Histal;
+
+Pes.sync({ force: false });
+
+export default Pes;

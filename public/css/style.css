@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+#kantumruy{
+  font-family: "Kantumruy Pro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
 :root{
     --cor-fundo-bege: #FAF0D7;
     --cor-fundo-cor: #FFB534;
@@ -229,15 +239,16 @@ a#voltar{
     padding: 0px;
 }
 
-#hist{
-    height: 3.5em;
-
+#hist {
+    display: flex; /* Define o container como flex */
+    justify-content: space-between; /* Espaço entre os itens: Talhão 1 na esquerda e os outros na direita */
+    align-items: center; /* Alinha verticalmente no centro */
 }
 
 #btn-voltar{
     background-color: var(--verde-escuro);
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     color: #FFFFFF;
     font-weight: 500;
     transition-duration: 0.3ms;
@@ -246,11 +257,129 @@ a#voltar{
 }
 
 #img-voltar{
-    width: 25.5px;
+    width: 40px;
     height: auto;
     margin-right: 18px;
 }
 
-#pesq{
-    width: 20px;
+#pesqb{
+    padding: 0px;
+    margin: 0px;
+    
+}
+
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre os ícones */
+}
+
+img {
+    max-height: 50px; /* Ajusta o tamanho dos ícones */
+    object-fit: contain;
+}
+
+#hist a {
+    display: flex;
+    align-items: center; /* Centraliza os ícones verticalmente */
+    margin-left: 8px; /* Espaçamento entre os botões de adicionar e editar */
+}
+
+.fonte{
+  font-family: "Kantumruy Pro", sans-serif;
+  font-style: normal;
+}
+
+.titulo{
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.titulo1{
+    font-weight: 700;
+    font-size: 48px;
+}
+
+#tab{
+    border-radius: 20px;
+    border-color: var(--verde-escuro);
+    border-width: 3px;
+    background-color: #FBF6EE;
+}
+
+#thead{
+    background-color: #FBF6EE;
+    border: none;
+    font-size: 24px;
+}
+
+#tabody{
+   background-color: #FAF0D7; 
+   border: none;
+   font-weight: 400;
+   font-size: 24px;;
+   padding: 5px 25px; /* Reduza os valores de padding conforme necessário */
+   text-align: left; /* Alinhe o texto para a esquerda */
+   vertical-align: middle; /* Garante alinhamento vertical */
+   height: 10px;
+}
+
+.tabe{
+    border-collapse: separate; /* Allow spacing between rows */
+    border-spacing: 0 15px; /* Add 10px vertical spacing between rows */
+    width: 100%; /* Make the table responsive */
+}
+
+.tb{
+    overflow: hidden;
+    margin-top: 60px;
+    line-height: 45px;
+ }
+
+ .tb td{
+    border: none;
+    padding: 10px;
+ }
+
+ .tb:hover {
+    background-color: #e6f7ff; /* Highlight row on hover */
+}
+
+ .tb td:first-child {
+    border-radius: 10px 0 0 10px; /* Raio no canto superior esquerdo e inferior esquerdo */
+}
+
+.tb td:last-child {
+    border-radius: 0 10px 10px 0; /* Raio no canto superior direito e inferior direito */
+}
+
+#tabody:last-child {
+    text-align: center; /* Centraliza o caractere '>' */
+    padding-left: 5px; /* Reduza o espaçamento à esquerda */
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--verde-escuro);
+    background-color: #FBF6EE;
+    width: 40%;
+    margin: 20px auto;
+    border-radius: 14px;
+    padding: 5px 10px;
+    padding-left: 20px;
+    color: #351102;
+}
+
+#pesq {
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+}
+
+.search label{
+    height: 20px;
 }

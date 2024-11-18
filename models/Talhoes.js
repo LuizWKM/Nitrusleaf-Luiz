@@ -1,24 +1,23 @@
-// ORM - Sequelize
-import Sequelize from "sequelize";
-//Configuração do Sequelize
+import sequelize from "sequelize";
 import connection from "../config/sequelize-config.js";
-//.define cria a tabela no banco
-const Talhoes = connection.define('talhoes',{
-id: {
-   type: Sequelize.INTEGER,
-   primaryKey: true,
-   autoIncrement: true
-},
-nomeTalhao:{
-    type:Sequelize.STRING,
-    allowNull: false,
-},
-nomePe:{
-    type:Sequelize.STRING,
-    allowNull: false,
-}
+import Propriedades from "./Propriedades.js";
 
+const Talhoes = connection.define('talhoes', {
+    id_talhao: {
+        type: sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+    },
+    nome: {
+        type: sequelize.STRING,
+        allowNull: false,
+    },
+    especie_fruta: {
+        type: sequelize.STRING,
+        allowNull: false,
+    }
 });
-//Não força a criação da tabela caso já exista
-Talhoes.sync({force: false})
+
+Talhoes.sync({ force: false });
+
 export default Talhoes;

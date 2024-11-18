@@ -2,6 +2,11 @@ import sequelize from "sequelize";
 import connection from "../config/sequelize-config.js";
 
 const Usuarios = connection.define('usuarios', {
+    id_usuario:{
+        type: sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+    },
     tipoPessoa:{
         type: sequelize.STRING,
         allowNull:false
