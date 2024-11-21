@@ -12,6 +12,7 @@ import TalhoesController from "./controllers/TalhoesController.js"
 import UsersController from "./controllers/UsersController.js"
 import UsuariosController from "./controllers/UsuariosController.js"
 import HomeController from "./controllers/HomeController.js"
+import MapaController from "./controllers/MapaController.js"
 
 
 app.use(express.urlencoded({extended: false}))
@@ -42,6 +43,7 @@ app.use("/", TalhoesController);
 app.use("/", UsersController);
 app.use("/", UsuariosController);
 app.use("/", HomeController);
+app.use("/", MapaController);
 
 // ROTA PRINCIPAL
 app.get("/",function(req,res){
