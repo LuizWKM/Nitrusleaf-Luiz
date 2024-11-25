@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
 
-
 #kantumruy{
   font-family: "Kantumruy Pro", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
 }
+
+*{
+    font-family: "Kantumruy Pro", sans-serif;
+}
+
 
 :root{
     --cor-fundo-bege: #FAF0D7;
@@ -247,28 +251,6 @@ a#voltar{
     align-items: center; /* Alinha verticalmente no centro */
 }
 
-/*Home*/
-#options {
-  border: none; /* Remove a borda */
-  background: none; /* Remove o fundo */
-  outline: none; /* Remove o contorno ao focar */
-  font-size: 30px; /* Ajuste o tamanho da fonte, se necessário */
-  color: inherit; /* Cor do texto */
-  appearance: none; /* Remove o estilo padrão do navegador */
-  -webkit-appearance: none; /* Remove o estilo em navegadores WebKit */
-  -moz-appearance: none; /* Remove o estilo em navegadores Mozilla */
-}
-
-#options-container {
-  display: inline-block; /* Para alinhar corretamente o contêiner */
-  position: relative; /* Para elementos adicionais no contêiner */
-}
-
-#options-label {
-  margin-right: 10px; /* Espaço entre o rótulo e o select */
-}
-
-
 #btn-voltar{
     background-color: var(--verde-escuro);
     border: none;
@@ -406,4 +388,126 @@ img {
 
 .search label{
     height: 20px;
+}
+/*Colocar as CSS aqui */
+
+
+/*Home*/
+#options {
+  border: none; /* Remove a borda */
+  background: none; /* Remove o fundo */
+  outline: none; /* Remove o contorno ao focar */
+  font-size: 30px; /* Ajuste o tamanho da fonte, se necessário */
+  color: inherit; /* Cor do texto */
+  appearance: none; /* Remove o estilo padrão do navegador */
+  -webkit-appearance: none; /* Remove o estilo em navegadores WebKit */
+  -moz-appearance: none; /* Remove o estilo em navegadores Mozilla */
+}
+  
+#options-container {
+  display: inline-block; /* Para alinhar corretamente o contêiner */
+  position: relative; /* Para elementos adicionais no contêiner */
+}
+  
+#options-label {
+  margin-right: 10px; /* Espaço entre o rótulo e o select */
+}
+  
+/* Container do menu */
+.custom-menu {
+    position: relative;
+    width: 500px;
+    height: 60px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    user-select: none;
+}
+  
+/* Cabeçalho do menu (item selecionado e seta) */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 10px;
+    border: 2px solid var(--verde-escuro);
+    border-radius: 15px;
+    font-size: 25px;
+    font-weight: 400;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Alterar bordas ao abrir o menu */
+.custom-menu.open .menu-header {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Seta do menu */
+.menu-arrow {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+}
+
+/* Girar a seta ao abrir o menu */
+.custom-menu.open .menu-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* Exibir as opções quando o menu estiver aberto */
+.custom-menu.open .menu-options {
+    display: block;
+}
+/* Lista de opções */
+.menu-options {
+    position: absolute;
+    top: 100%;
+    width: 100%; /* Ocupa 100% da largura do contêiner pai */
+    font-weight: 400;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: none;
+    list-style: none; /* Remove os marcadores padrão de lista */
+    margin: 0; /* Remove o espaçamento externo */
+    padding: 0; /* Remove o espaçamento interno */
+    background-color: #fff;
+    border: 2px solid var(--verde-escuro);
+    border-top: none;
+    border-radius: 0 0 15px 15px; /* Arredonda apenas as bordas inferiores */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de cada opção */
+.menu-option {
+    padding: 10px; /* Espaçamento interno apenas no conteúdo */
+    font-size: 25px;
+    color: #333;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+/* Remover borda superior da primeira opção */
+.menu-option:first-child {
+    border-top: none;
+}
+
+/* Última opção com borda arredondada */
+.menu-options li:last-child {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+/* Hover para as opções */
+.menu-option:hover {
+    background-color: #f0f0f0;
+}
+
+.mapama{
+    margin-top: 50px;
+    border: 2px solid var(--verde-escuro);
+    border-radius: 15px;
 }
