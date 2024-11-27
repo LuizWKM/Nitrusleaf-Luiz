@@ -1,5 +1,6 @@
 import express from 'express'
 import Deficiencia from "../models/Deficiencia.js"
+import Auth from "../middleware/Auth.js"
 
 const router = express.Router()
 
@@ -10,6 +11,7 @@ router.get("/deficiencia", function (req, res) {
     })
 
 })
+
 router.post("/deficiencia/new", function (req, res) {
     try {
         const dDados = req.body;

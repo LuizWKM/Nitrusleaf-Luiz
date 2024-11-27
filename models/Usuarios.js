@@ -2,38 +2,67 @@ import sequelize from "sequelize";
 import connection from "../config/sequelize-config.js";
 
 const Usuarios = connection.define('usuarios', {
-    id_usuario:{
+    id_usuario: {
         type: sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
     },
-    tipoPessoa:{
+    foto_perfil: {
         type: sequelize.STRING,
-        allowNull:false
     },
-    cpf:{
+    nome: {
         type: sequelize.STRING,
-        allowNull:false
+        allowNull: false,
     },
-    logradouro:{
+    sobrenome: {
         type: sequelize.STRING,
-        allowNull:false
+        allowNull: false,
     },
-    numero:{
+    email: {
         type: sequelize.STRING,
-        allowNull:false
+        allowNull: false,
     },
-    bairro:{
+    senha: {
         type: sequelize.STRING,
-        allowNull:false
+        allowNull: false,
     },
-    cidade:{
+    telefone: {
         type: sequelize.STRING,
-        allowNull:false
     },
-    
+    celular: {
+        type: sequelize.STRING,
+    },
+    tipo_pessoa: {
+        type: sequelize.ENUM('fisica', 'juridica'),
+        allowNull: false,
+        defaultValue: 'fisica',
+    },
+    cpf: {
+        type: sequelize.STRING,
+    },
+    cep: {
+        type: sequelize.STRING,
+    },
+    cnpj: {
+        type: sequelize.STRING,
+    },
+    nome_fantasia: {
+        type: sequelize.STRING,
+    },
+    logradouro: {
+        type: sequelize.STRING,
+    },
+    numero: {
+        type: sequelize.STRING,
+    },
+    bairro: {
+        type: sequelize.STRING,
+    },
+    cidade: {
+        type: sequelize.STRING,
+    }
+});
 
-})
+Usuarios.sync({ force: false });
 
-Usuarios.sync({force:false});
 export default Usuarios;

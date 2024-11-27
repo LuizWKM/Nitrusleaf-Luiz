@@ -1,10 +1,106 @@
 <%- include ('partials/header.ejs') %>
-<%- include ('partials/navbar.ejs') %>
-<%- include ('partials/navbar-lateral.ejs') %>
+<%- include ('partials/navbar-user.ejs') %>
+<% if (messages.success) { %>
+  <div class="alert alert-success">
+      <%= messages.success %>
+  </div>
+<% } %>
+<main class="main-content">
+  <%- include ('partials/navbar-lateral.ejs') %>
+  <div class="container mt-5 cont">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between mt-2" id="hist">
+        <h2 class="align-self-end m-0 p-0 fonte titulo1">Início</h2>
+        <div id="options-container">
+          <select id="prop" class="options">
+            <option value="Propriedade 1">Propriedade 1</option>
+            <option value="Propriedade 2">Propriedade 2</option>
+          </select>
+          <img src="/imgs/seta-prop.svg" alt="Seta" class="menu-arrowp" id="setajs"/>
+        </div>
+    </div>
+        
+    </div>
+    <img src="/imgs/linha.png" alt="" id="voltar-linha" class="p-0 mt-0" />
+    <!-- Botões para upload de imagem da folha-->
+    <div class="container">
+      <div class="row">
+        <div class="col m-1">
+          <a href="/scanner">
+            <button class="btn btn-block rounded-5" id="btn-scan">ESCANEAR FOLHA</button>
+          </a>
+        </div>
 
-    <div class="card" id="card-home">
-        <div class="card-body" id="card-body-home">
-
+        <div class="col m-1">
+          <a href="/scanner">
+            <button class="btn btn-block rounded-5" id="btn-scan">FAZER UPLOAD DA IMAGEM</button>
+          </a>
         </div>
       </div>
+      <img src="/imgs/linha.png" alt="" id="voltar-linha" class="p-0 mt-0" />
+    </div>
+    
+    <div class="container pt-3">
+    
+      <div class="row">
+        <div class="col m-2 card" id="tab">
+          <h2 class="align-self-start m-4 px-2 fonte" id="titulo">Ocorrências totais em %</h2>
+          <div class="row">
+            <div class="col align-self-start m-3 mb-5">
+              <div class="graficoContainer">
+                <!-- O gráfico de pizza será desenhado neste div -->
+                <div id="grafico-pizza"></div>             
+              </div>
+            </div>
+            <div id="legenda" class="col legenda">
+              <h4 id="titulo" class="ms-3 mb-0">Legenda</h4>
+              <div class="row"></div> 
+                <div id="legenda">
+                  <div class="legenda-item m-2">
+                      <div class="cor" style="background-color: #D84A0F;"></div>
+                      <span class="ms-2">Cobre</span>
+                  </div>
+                  <div class="legenda-item m-2">
+                      <div class="cor" style="background-color:#FFB534;"></div>
+                      <span class="ms-2">Manganês</span>
+                  </div>
+                  <div class="legenda-item m-2">
+                      <div class="cor" style="background-color: #ACACAC;"></div>
+                      <span class="ms-2">Adversos</span>
+                  </div>
+                  <input type="submit" value="Detalhar" class="form-control  mt-4" id="btn-detalhar"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="col m-2 card" id="tab">
+            <h2 class="align-self-start m-4 px-2 fonte" id="titulo">Análises recentes</h2>
+            <div class=" mx-4">
+              <div id="legenda">
+                <div class="legenda-item">
+                    <div class="cor2" style="background-color:#3357FF;"></div>
+                    <p>+ 7 pés analisados</p>
+                </div>
+                <div class="legenda-item">
+                    <div class="cor2" style="background-color: #3357FF;"></div>
+                    <p>+ 24 pés tratados</p>
+                </div>
+                <div class="legenda-item">
+                    <div class="cor2" style="background-color: #3357FF;"></div>
+                    <p>+ 12 pés plantados</p>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+          
+  </div>
+</div>
+</main>
+
+
+
+
 <%- include ('partials/footer.ejs') %>

@@ -1,6 +1,13 @@
 <%- include ('partials/header.ejs') %>
 <%- include ('partials/navbar.ejs') %>
 
+<main>
+<% if (messages.danger) { %>
+    <div class="alert alert-danger">
+        <%= messages.danger %>
+    </div>
+<% } %>
+
         <div class="conteiner py-5">
             <div class="container">
                 <h2 id="text">Cadastrar</h2>
@@ -14,11 +21,11 @@
                         <div id="row">
                             <div id="column">
                                 <label>Nome:</label>
-                                <input class="form-control" type="nome" name="nome" placeholder="Digite seu nome"
+                                <input class="form-control" type="text" name="nome" placeholder="Digite seu nome"
                                     required>
                                 <br>
                                 <label>Telefone:</label>
-                                <input class="form-control" type="telefone" name="telefone"
+                                <input class="form-control" type="text" name="telefone"
                                     placeholder="Insira seu telefone" required>
                                 <br>
                                 <label>E-mail:</label>
@@ -61,5 +68,6 @@
             </div> 
         </div>
     </div>
+</main>
 
-<%- include ('partials/footer.ejs') %>
+<%- include ('partials/wavefooter.ejs') %>

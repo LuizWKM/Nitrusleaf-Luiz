@@ -8,6 +8,13 @@ const Talhoes = connection.define('talhoes', {
         autoIncrement: true,
         primaryKey: true,
     },
+    id_propriedade: {
+        type: sequelize.INTEGER,
+        references: {
+            model: Propriedades,
+            key: 'id_propriedade'
+        }
+    },
     nome: {
         type: sequelize.STRING,
         allowNull: false,
@@ -17,6 +24,8 @@ const Talhoes = connection.define('talhoes', {
         allowNull: false,
     }
 });
+
+import '../config/relacionamentos-config.js';
 
 Talhoes.sync({ force: false });
 

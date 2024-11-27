@@ -1,17 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
-
-#kantumruy{
-  font-family: "Kantumruy Pro", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-}
-
-*{
-    font-family: "Kantumruy Pro", sans-serif;
-}
-
-
 :root{
     --cor-fundo-bege: #FAF0D7;
     --cor-fundo-cor: #FFB534;
@@ -24,7 +10,10 @@
     --cor-fundo-form: #FFE29B;
     --background-gradient: linear-gradient(to left, #FFB534, #E88239);
     --fonte-roboto: 'Roboto', sans-serif;
-    --font-weight-bold: 700;
+    --font-weight-bold: 700;#dropdown {
+    margin-left: 1200px;
+    margin-bottom: 20px;
+}
 }
 
 html, body {  
@@ -36,23 +25,28 @@ html, body {
     font-family: var(--fonte-roboto);
     font-weight: var(--font-weight-bold);
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-
+    position: relative; /* Para referência de posicionamento estático */
+    margin: 0px;
+    padding: 0px;
+    min-height: 100vh; /* Altura mínima da página igual à altura da janela */
+    flex-direction: column; /* Organiza os elementos em coluna */
+    
 }
 
-main {
-    flex: 1;
+svg{
+    display: block;
 }
 
 #footer {
     background: var(--background-gradient);
+    margin-top: auto;
+    padding: 10%;
     width: 100%;
     height: 130px;
-    padding: 20px 0;
+    padding: 20px 0px;
     border-top: 2px solid var(--cor-fundo-bege);
     font-family: var(--fonte-roboto);
+    
 }
 
 ul {
@@ -73,13 +67,14 @@ th, td {
 footer {
     background-color: var(--cor-fundo-bege);
     text-align: center;  
-    padding: 10px 0; /* Espaçamento interno */  
+    padding: 10px 0px; /* Espaçamento interno */  
     border-top: 2px solid var(--cor-fundo-bege);
 }
     
 #navbar-lp{
     background-color: var(--cor-fundo-bege);
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding-inline: 10%; 
     border-bottom: 3px solid #E88239;
@@ -105,6 +100,21 @@ footer {
 #img-logo{
     width: 160px; 
     height: auto;
+}
+
+#btn-google{
+    background-color: #FFFFFF;
+    border: 1px solid #677283;
+    border-radius: 40px;
+    color: black;
+    font-weight: 600;
+    transition-duration: 0.3ms;
+    text-align: center;
+}
+
+#btn-google:hover{
+    background-color: #ECECEC;
+    color: #220303;
 }
 
 #btn-cadastrar{
@@ -137,14 +147,128 @@ footer {
     color: white;
 }
 
-#wave-conteiner{
+#wave-container{
     background: var(--background-gradient);
     position: relative;
     width: 100%;
     height: 200px;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    min-height: auto;
+    margin-top: 10%;
+    margin-bottom: 0;
+    
    
     /* clip-path: path("M0,30 Q500,230 1000,90 T2000,80 L2000,500 L0,600 Z"); */
+    
     clip-path: polygon(100% 100%, 0% 100% , 0.00% 10.69%, 2.50% 14.54%, 5.00% 18.95%, 7.50% 23.82%, 10.00% 29.03%, 12.50% 34.45%, 15.00% 39.94%, 17.50% 45.37%, 20.00% 50.61%, 22.50% 55.53%, 25.00% 60.00%, 27.50% 63.91%, 30.00% 67.18%, 32.50% 69.72%, 35.00% 71.46%, 37.50% 72.37%, 40.00% 72.41%, 42.50% 71.60%, 45.00% 69.95%, 47.50% 67.50%, 50.00% 64.31%, 52.50% 60.46%, 55.00% 56.05%, 57.50% 51.18%, 60.00% 45.97%, 62.50% 40.55%, 65.00% 35.06%, 67.50% 29.63%, 70.00% 24.39%, 72.50% 19.47%, 75.00% 15.00%, 77.50% 11.09%, 80.00% 7.82%, 82.50% 5.28%, 85.00% 3.54%, 87.50% 2.63%, 90.00% 2.59%, 92.50% 3.40%, 95.00% 5.05%, 97.50% 7.50%, 100.00% 10.69%);
+    
+}
+
+/* Navbar User */
+
+.user-pic{
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid var(--texto-marrom);
+}
+.sub-menu-wrap{
+    position: absolute;
+    top: 11%;
+    right: 11%;
+    width: 300px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+.sub-menu-wrap.open-menu{
+    max-height: 300px;
+}
+
+.sub-menu{
+    background: var(--background-gradient);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--texto-marrom);
+    padding: 5px;
+}
+.sub-menu-link p{
+    width: 100%;
+    margin-top: 1rem;
+    margin-left: 5px;
+    
+}
+.sub-menu-link img{
+    width: 40px;
+}
+
+.sub-menu-link:hover{
+    background: #FCCE7A;
+    border-radius: 10px;
+}
+
+#user-info{
+    display: flex;
+    justify-content: space-between
+}
+/* Cards Infos */
+
+#mexericas{
+    border-radius: 35px;
+    box-shadow: 0px 14px 10px #FFD9C0;
+}
+
+#texto{
+    display:block;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--font-weight-bold);
+    text-align: justify;
+}
+#texto h1{
+    font-family: var(--font-weight-bold);
+    font-weight: bold;
+    color: var(--texto-marrom)
+}
+#teste{
+    display: flex;
+    justify-content: space-between;
+}
+#cartas{
+    background-color: #ffffff;
+    display:block;
+    height: auto;
+    width: 300px;
+    border-radius: 40px;
+    box-shadow: 0px 14px 10px #FFD9C0;
+}
+
+#textocarta{
+    text-align: inherit;
+    margin-bottom: 2rem;
+}
+#vetores{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    width: 100px;
+    height: 100px;
+    object-fit:fill;
+}
+
+/*  */
+
+.transparent-container {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
 }
 
 #div-index{
@@ -152,12 +276,31 @@ footer {
     
 }
 
-#btn-index{
-    padding-inline: 76px;
-    width: 436px;
+#bg-card{
+    background: var(--background-gradient);
+    margin-bottom: a;
 }
 
+
 /* ----------- */
+
+#form-bg{
+    background-color: var(--cor-fundo-form);
+}
+#form-bg-claro{
+    background-color: var(--cor-fundo-bege);
+    border-color: var(--border-input-color);
+}
+
+#tabela-dados{
+    display: flex;
+    gap: 15rem;
+}
+
+#titulo{
+    font-family: var(--fonte-roboto);
+    font-weight: var(--font-weight-bold);
+}
 
 #text{
     margin-left: 15%;
@@ -227,13 +370,161 @@ margin-right: 20%;
 #v-pills-settings-tab-u{
     margin-bottom: 100%;
 }
-
-/*Novos CSS*/
 #card-home{
     width: 50px;
     height: 70px;
 }
 
+/*home*/
+
+#options {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: inherit;
+    font-size: 30px;
+    
+}
+
+#btn-scan{
+    background-color: var(--verde-escuro);
+    width: 600px;
+    height: 110px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#custom-file-upload {
+    background-color: var(--verde-escuro);
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.graficoContainer {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    position: relative;
+    background: conic-gradient(#D84A0F 0% 19%, #ACACAC 19% 62%, #FFB534 62% 100%);
+    margin: 0 auto;
+}
+
+/* Estilos das porcentagens */
+.porcentagem {
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    pointer-events: none;
+}
+
+.titulo{
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.titulo1{
+    font-weight: 700;
+    font-size: 48px;
+}
+
+#row-home{
+    display: flex;
+    gap: 21px;
+    margin-bottom: 100px;
+    margin-top: 5%;
+}
+
+#row-home:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#column-home{
+    float: left;
+    column-gap: 40px;
+}
+
+.graficoContainer {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.graficoBackground {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+#nav-lt{
+    margin-top: 5%;
+}
+
+  
+/* Estilo da legenda */
+/* Estilo geral para a legenda */
+
+#legenda {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+}
+
+.legenda-item {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+}
+
+.cor {
+      width: 40px;
+      height: 20px;
+      border-radius: 20%;
+}
+
+.cor2 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.legenda-item span {
+    font-size: 20px;
+    color: #333;
+}
+
+.legenda-item p {
+    font-size: 26px;
+    color: #333;
+}
+
+#btn-detalhar{
+    background-color: var(--verde-bege);
+    color: white;
+}
+
+#diag-img{
+    margin: 5%;
+    width: 10rem;
+    height: 20rem;
+
+}
+/* Histal */
 a#voltar{
     background-color: var(--verde-bege);
     height: 100%;
@@ -245,11 +536,6 @@ a#voltar{
     padding: 0px;
 }
 
-#hist {
-    display: flex; /* Define o container como flex */
-    justify-content: space-between; /* Espaço entre os itens: Talhão 1 na esquerda e os outros na direita */
-    align-items: center; /* Alinha verticalmente no centro */
-}
 
 #btn-voltar{
     background-color: var(--verde-escuro);
@@ -281,10 +567,7 @@ a#voltar{
     gap: 10px; /* Espaçamento entre os ícones */
 }
 
-img {
-    max-height: 50px; /* Ajusta o tamanho dos ícones */
-    object-fit: contain;
-}
+
 
 #hist a {
     display: flex;
@@ -297,15 +580,7 @@ img {
   font-style: normal;
 }
 
-.titulo{
-    font-weight: 700;
-    font-size: 32px;
-}
 
-.titulo1{
-    font-weight: 700;
-    font-size: 48px;
-}
 
 #tab{
     border-radius: 20px;
@@ -315,13 +590,22 @@ img {
 }
 
 #thead{
-    background-color: #FBF6EE;
     border: none;
     font-size: 24px;
 }
 
 #tabody{
    background-color: #FAF0D7; 
+   border: none;
+   font-weight: 400;
+   font-size: 24px;;
+   padding: 5px 25px; /* Reduza os valores de padding conforme necessário */
+   text-align: left; /* Alinhe o texto para a esquerda */
+   vertical-align: middle; /* Garante alinhamento vertical */
+   height: 10px;
+}
+
+#tabodyp{
    border: none;
    font-weight: 400;
    font-size: 24px;;
@@ -389,30 +673,65 @@ img {
 .search label{
     height: 20px;
 }
-/*Colocar as CSS aqui */
 
 
-/*Home*/
-#options {
-  border: none; /* Remove a borda */
-  background: none; /* Remove o fundo */
-  outline: none; /* Remove o contorno ao focar */
-  font-size: 30px; /* Ajuste o tamanho da fonte, se necessário */
-  color: inherit; /* Cor do texto */
-  appearance: none; /* Remove o estilo padrão do navegador */
-  -webkit-appearance: none; /* Remove o estilo em navegadores WebKit */
-  -moz-appearance: none; /* Remove o estilo em navegadores Mozilla */
+/*Mapas*/
+.options {
+    border: none; /* Remove a borda */
+    background: none; /* Remove o fundo */
+    outline: none; /* Remove o contorno ao focar */
+    font-size: 30px; /* Ajuste o tamanho da fonte, se necessário */
+    color: inherit; /* Cor do texto */
+    appearance: none; /* Remove o estilo padrão do navegador */
+    -webkit-appearance: none; /* Remove o estilo em navegadores WebKit */
+    -moz-appearance: none; /* Remove o estilo em navegadores Mozilla */
+    width: 100%; /* Faz o select ocupar a largura do contêiner */
+    padding-right: 40px; /* Deixa espaço para a seta */
 }
-  
+
+.optionspo {
+    border: 2px solid var(--verde-escuro); /* Remove a borda */
+    background-color: white; /* Remove o fundo */
+    outline: none; /* Remove o contorno ao focar */
+    font-size: 14px; /* Ajuste o tamanho da fonte, se necessário */
+    color: inherit; /* Cor do texto */
+    appearance: none; /* Remove o estilo padrão do navegador */
+    -webkit-appearance: none; /* Remove o estilo em navegadores WebKit */
+    -moz-appearance: none; /* Remove o estilo em navegadores Mozilla */
+    width: 100%; /* Faz o select ocupar a largura do contêiner */
+    padding-right: 40px; /* Deixa espaço para a seta */
+}
+
+.options-container {
+    display: inline-block; /* Para alinhar corretamente o contêiner */
+    position: relative; /* Para elementos adicionais no contêiner */
+}
+
 #options-container {
-  display: inline-block; /* Para alinhar corretamente o contêiner */
-  position: relative; /* Para elementos adicionais no contêiner */
+    display: inline-block; /* Para alinhar corretamente o contêiner */
+    position: relative; /* Para elementos adicionais no contêiner */
+    width: 300px; /* Ajuste a largura conforme necessário */
 }
-  
-#options-label {
-  margin-right: 10px; /* Espaço entre o rótulo e o select */
+
+.opcaot{
+    width: 200px;
 }
-  
+
+.menu-arrowp {
+    position: absolute;
+  right: 10px; /* Ajuste conforme necessário*/ 
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Para não interferir na seleção*/
+  transition: 0.3s ease; /* Animação suave ao girar*/
+}
+
+.menuseta-girar {
+    transform: translateY(-50%) rotate(180deg); 
+    top: 16%;
+    transition: 0.3s ease;
+}
+
 /* Container do menu */
 .custom-menu {
     position: relative;
@@ -448,7 +767,7 @@ img {
 .menu-arrow {
     width: 14px;
     height: 14px;
-    transition: transform 0.3s ease;
+    transition: 0.3s ease;
 }
 
 /* Girar a seta ao abrir o menu */
@@ -456,6 +775,9 @@ img {
     transform: rotate(180deg);
 }
 
+.menuseta-girar{
+    transform: rotate(180deg);
+}
 
 /* Exibir as opções quando o menu estiver aberto */
 .custom-menu.open .menu-options {
@@ -510,4 +832,102 @@ img {
     margin-top: 50px;
     border: 2px solid var(--verde-escuro);
     border-radius: 15px;
+}
+
+#link{
+    color: #0284E1;
+}
+
+#link:visited{
+    color: #0284E1;
+}
+
+#link:link{
+    color: #0284E1;
+}
+
+#link:hover{
+    color: #0095ff;
+    text-decoration: underline;
+} 
+
+/* Configurações gerais para o layout */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex; /* Layout flexível para navbar e conteúdo */
+    min-height: 100vh; /* Altura mínima da página igual à altura da janela */
+    flex-direction: column; /* Organiza os elementos em coluna */
+}
+
+/* Navbar Lateral */
+.navbar-lateral {
+    width: 100px; /* Largura do menu lateral */
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-image: var(--background-gradient);
+    color: white;
+    padding: 15px 0px;
+    display: flex;
+    position: absolute;
+    flex-shrink: 0; /* Impede que a navbar seja redimensionada */
+    height: auto; /* Ajusta a altura com base no conteúdo */
+}
+
+/* Lista de navegação */
+.navbar-lateral ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.navbar-lateral ul li {
+    margin: 15px 0;
+    width: 57px;
+}
+
+.navbar-lateral ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    transition: 0.3s;
+}
+
+.navbar-lateral ul li a:hover {
+    background-image: linear-gradient(to left, #ffc45d, #df9662);
+    border-radius: 5px;
+}
+
+/* Conteúdo principal */
+.main-content {
+    flex: 1; /* Faz o conteúdo principal ocupar o restante do espaço disponível */
+     /* Espaço para a navbar */
+    min-height: 1000px;
+    padding: 10px 0px 10px 0px;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Footer */
+footer {
+    position: relative;
+    margin-top: auto; /* Move o footer para o final da página */
+    background: var(--background-gradient);
+    padding: 0px;
+    text-align: center;
+    border-top: 2px solid var(--cor-fundo-bege);
+}
+
+.cont{
+    position: relative;
+}
+
+.propme{
+    margin-left: auto;
 }

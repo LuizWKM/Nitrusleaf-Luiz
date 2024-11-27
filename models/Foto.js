@@ -1,12 +1,20 @@
 import sequelize from "sequelize";
 import connection from "../config/sequelize-config.js";
+import Pes from "./Pes.js";
 import Talhoes from "./Talhoes.js";
 
-const Pes = connection.define('pes', {
-    id_pe: {
+const Foto = connection.define('foto', {
+    id_foto: {
         type: sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
+    },
+    id_pe: {
+        type: sequelize.INTEGER,
+        references: {
+            model: Pes,
+            key: 'id_pe'
+        }
     },
     id_talhao: {
         type: sequelize.INTEGER,
@@ -15,16 +23,19 @@ const Pes = connection.define('pes', {
             key: 'id_talhao'
         }
     },
-    nome: {
+    url: {
         type: sequelize.STRING,
         allowNull: false,
     },
-    situacao: {
-        type: sequelize.ENUM('tratado', 'nao tratado', 'sem informacoes'),
-        allowNull: false,
+    data_tiragem: {
+        type: sequelize.DATE,
+    },
+    resultado_analise: {
+        type: sequelize.STRING,
     }
 });
 
-Pes.sync({ force: false });
 
-export default Pes;
+Foto.sync({ force: false });
+
+export default Foto;

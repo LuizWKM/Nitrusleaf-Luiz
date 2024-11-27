@@ -1,56 +1,60 @@
-<%- include ('partials/header.ejs') %> <%- include ('partials/navbar.ejs') %>
+<%- include ('partials/header.ejs') %> 
+<%- include ('partials/navbar-user.ejs') %>
 
-<div class="container">
-  <div class="d-flex align-items-center justify-content-between mt-2" id="hist">
-    <h2 class="align-self-end m-0 p-0 fonte titulo1">Histórico</h2>
-    <a
-      href="/historico"
-      id="btn-voltar"
-      class="py-2 align-self-end fonte titulo"
-      ><img src="/imgs/back.svg" alt="" id="img-voltar" />Voltar</a
-    >
-  </div>
-
-  <img src="/imgs/linha.png" alt="" id="voltar-linha" class="p-0 mt-0" />
-</div>
-
-<div class="container pt-3">
-  <div class="card px-5" id="tab">
-    <div class="d-flex align-items-center justify-content-between mt-2" id="hist">
-      <h2 class="align-self-center m-0 px-2 fonte titulo">Talhão 1</h2>
-      <div class="d-flex align-items-center">
-        <div class="search me-3">
-          <!-- Mantém os campos de pesquisa agrupados -->
-           <label>
-          <span class=" border-0" id="search-addon"><i class="fas fa-search" id="pesqb"></i></span>
-        </label>
-          <input type="text" class="" placeholder="Buscar" id="pesq"/>
+<main class="main-content">
+    <%- include ('partials/navbar-lateral.ejs') %>
+    <div class="container cont">
+    <div class="container mt-5">
+        <div class="d-flex align-items-center justify-content-between mt-2" >
+            <h1 class="align-self-end m-0 p-0 fonte" id="titulo">Histórico</h1>
+            <a href="/historico" id="btn-voltar" class="py-2 px-5 align-self-end" id="titulo">
+                <img src="/imgs/back.svg" alt="" style="max-height: 50px; object-fit: contain;" id="img-voltar">
+                Voltar        
+            </a>
         </div>
-        <a href="/fazerupload"><img src="/imgs/adicionar.svg" alt=""/></a>
-        <a href="/fazeredit"><img src="/imgs/btn-editar.svg" alt=""/></a>
-      </div>
+        <img src="/imgs/linha.png" alt="" id="voltar-linha" style="max-height: 50px; object-fit: contain;"  class="p-0 mt-0" />
     </div>
-    <img src="/imgs/linha.png" alt="" id="voltar-linha" class="p-0 mt-0" />
-    <table class="tabe">
-      <thead id="thead">
-        <th class="fonte" id="thead">Nome Pé</th>
-        <th class="fonte" id="thead">Status</th>
-        <th class="fonte" id="thead">Data de Criação</th>
-        <th class="fonte" id="thead"></th>
-      </thead>
-      <tbody>
-        <% histal.forEach(pes => { %>
-        <tr class="tb">
-          <td class="fonte" id="tabody"><%= pes.nome%></td>
-          <td class="fonte" id="tabody"><%= pes.situacao%></td>
-          <td class="fonte" id="tabody"><%=pes.data_criacao%></td>
-          <td class="fonte" id="tabody">
-            <a href="/HisTalEdit"><img src="/imgs/setinha.svg" alt="" /></a>
-          </td>
-        </tr>
-        <% }) %>
-      </tbody>
-    </table>
-  </div>
-</div>
+
+    <div class="container pt-3">
+    <div class="card px-5" id="tab">
+        <div class="d-flex align-items-center justify-content-between mt-2" id="hist">
+            <h2 class="align-self-center m-0 px-2 fonte titulo">Talhão 1</h2>
+            <div class="d-flex align-items-center">
+                <div class="search me-3">
+                    <!-- Mantém os campos de pesquisa agrupados -->
+                    <label>
+                    <span class=" border-0" id="search-addon"><i class="fas fa-search" id="pesqb"></i></span>
+                    </label>
+                    <input type="text" class="" placeholder="Buscar" id="pesq"/>
+                </div>
+                <a href="/fazerupload"><img src="/imgs/adicionar.svg"  alt=""></a>
+                <a href="/fazeredit"><img src="/imgs/btn-editar.svg" alt=""></a>
+            </div>
+        </div>
+        <img src="/imgs/linha.png" alt="" id="voltar-linha" class="p-0 mt-0" />
+        <table class="tabe">
+        <thead id="thead">
+            <th class="fonte" id="thead">Nome Pé</th>
+            <th class="fonte" id="thead">Status</th>
+            <th class="fonte" id="thead">Data de Criação</th>
+            <th class="fonte" id="thead"></th>
+        </thead>
+        <tbody>
+            <% histal.forEach(pes => { %>
+            <tr class="tb">
+            <td class="fonte" id="tabody"><%= pes.nome%></td>
+            <td class="fonte" id="tabody"><%= pes.situacao%></td>
+            <td class="fonte" id="tabody"><%= pes.data_criacao%></td>
+            <td class="fonte" id="tabody">
+                <a href="/HisTalEdit"><img src="/imgs/setinha.svg" alt="" /></a>
+            </td>
+            </tr>
+            <% }) %>
+        </tbody>
+        </table>
+    </div>
+    </div>
+    </div>
+</main>
+
 <%- include ('partials/footer.ejs') %>
